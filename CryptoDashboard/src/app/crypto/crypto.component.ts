@@ -9,6 +9,10 @@ export class CryptoComponent implements OnInit {
 
   @Input() name:string
   @Input() symbol:string
+  @Input() image:string
+  @Input() current_price:string
+  @Input() market_cap:string
+  @Input() market_cap_rank:string
   @Output() nameOut = new EventEmitter<string>()
 
 
@@ -20,6 +24,10 @@ export class CryptoComponent implements OnInit {
   constructor() {
     this.name = "Name"
     this.symbol = "none"
+    this.image = "none"
+    this.current_price = "none"
+    this.market_cap = "none"
+    this.market_cap_rank = "none"
     this.click_number = 0
     this.hide = true
 }

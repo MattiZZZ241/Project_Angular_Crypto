@@ -16,14 +16,36 @@ export class CryptoService {
 
 getCryptos(): Observable<any> {
 
-    return this.httpClient.get<any[]>('https://api.coingecko.com/api/v3/coins/list?include_platform=false').pipe(
+    return this.httpClient.get<any[]>('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1').pipe(
         map( (tab: any[]) => {
           const res = []
           for(let i=0; i<tab.length; i++) {
             const newElement: any = {}
             newElement['id'] = tab[i].id
-            newElement['name'] = tab[i].name
             newElement['symbol'] = tab[i].symbol
+            newElement['name'] = tab[i].name
+            newElement['image'] = tab[i].image
+            newElement['current_price'] = tab[i].current_price
+            newElement['market_cap'] = tab[i].market_cap
+            newElement['market_cap_rank'] = tab[i].market_cap_rank
+            newElement['total_volume'] = tab[i].total_volume
+            newElement['high_24h'] = tab[i].high_24h
+            newElement['low_24h'] = tab[i].low_24h
+            newElement['price_change_24h'] = tab[i].price_change_24h
+            newElement['price_change_percentage_24h'] = tab[i].price_change_percentage_24h
+            newElement['market_cap_change_24h'] = tab[i].market_cap_change_24h
+            newElement['market_cap_change_percentage_24h'] = tab[i].market_cap_change_percentage_24h
+            newElement['circulating_supply'] = tab[i].circulating_supply
+            newElement['total_supply'] = tab[i].total_supply
+            newElement['ath'] = tab[i].ath
+            newElement['ath_change_percentage'] = tab[i].ath_change_percentage
+            newElement['ath_date'] = tab[i].ath_date
+            newElement['atl'] = tab[i].atl
+            newElement['atl_change_percentage'] = tab[i].atl_change_percentage
+            newElement['atl_date'] = tab[i].atl_date
+            newElement['roi'] = tab[i].roi
+            newElement['last_updated'] = tab[i].last_updated
+
             res.push(newElement)
           }
           return res;
