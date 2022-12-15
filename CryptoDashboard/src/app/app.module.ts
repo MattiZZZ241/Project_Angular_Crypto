@@ -10,7 +10,8 @@ import { MainComponent } from './main/main.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { AllCryptoComponent } from './all-crypto-list/all-crypto-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CryptinfoComponent } from './cryptinfo/cryptinfo.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http'
     MainComponent,
     CryptoComponent,
     AllCryptoComponent,
+    CryptinfoComponent,
   ],
   imports: [
     BrowserModule,

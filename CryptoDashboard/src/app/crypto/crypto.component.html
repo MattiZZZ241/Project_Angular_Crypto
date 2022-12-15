@@ -1,9 +1,9 @@
 
 
-    <div class="w3-padding cocktail">
-
+    <div class="w3-padding cocktail" (click)="onClick()" routerLink="/cryptinfo">
+      
       {{market_cap_rank}} <img src="{{image}}" style="height: 30px; width: 30px;"> {{name}} {{symbol}} {{current_price}} {{market_cap}}
-      <button class="w3-right" (click)="onClick()" style="height:30%; width: 10%;">Click me</button><br>
+
     </div>
 
 
