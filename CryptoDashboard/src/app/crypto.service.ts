@@ -6,8 +6,6 @@ import { TmplAstBoundAttribute } from '@angular/compiler';
   providedIn: 'root'
 })
 export class CryptoService {
-
-  cocktails: Array<any> = new Array<any>()
   subsciption : Subscription
   constructor(private httpClient: HttpClient) {
 
