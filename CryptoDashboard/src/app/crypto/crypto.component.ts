@@ -8,12 +8,13 @@ import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
 export class CryptoComponent implements OnInit {
 
   @Input() name:string
+  @Input() id:string
   @Input() symbol:string
   @Input() image:string
   @Input() current_price:string
   @Input() market_cap:string
   @Input() market_cap_rank:string
-  @Output() nameOut = new EventEmitter<string>()
+  @Output() idOut = new EventEmitter<string>()
 
 
   click_number: number
@@ -23,6 +24,7 @@ export class CryptoComponent implements OnInit {
 
   constructor() {
     this.name = "Name"
+    this.id = "none"
     this.symbol = "none"
     this.image = "none"
     this.current_price = "none"
@@ -44,7 +46,7 @@ export class CryptoComponent implements OnInit {
     this.click_number++;
     this.hide = ! this.hide
     console.log(this.click_number)
-    this.nameOut.emit(this.name)
+    this.idOut.emit(this.id)
   }
 
 }

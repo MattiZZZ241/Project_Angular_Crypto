@@ -11,7 +11,7 @@ import { CryptoService } from '../crypto.service';
 export class MainComponent implements OnInit {
   cryptos: Array<any> = new Array<any>()
   DisplayCryptos: Array<any> = new Array<any>()
-  name_parent: string
+  id_parent: string
   mySub: Subscription
 
   protected userForm: UntypedFormGroup​
@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
 
 
   constructor(private cryptoService: CryptoService) {
-    this.name_parent = ""
+    this.id_parent = ""
 
     this.searchCtrl = new FormControl<string>("")​
 
@@ -54,13 +54,13 @@ ngOnInit(): void {​
     this.DisplayCryptos ​= this.cryptos
     this.userForm = new UntypedFormGroup({ search: this.searchCtrl});​
 }
-  onName = (message: string) : void => {
-    console.log(message)
-    this.name_parent = message
+  onId = (id: string) : void => {
+    console.log(id)
+    this.id_parent = id
   }
 
   childName = () : string => {
-    return this.name_parent
+    return this.id_parent
   }
 
 
