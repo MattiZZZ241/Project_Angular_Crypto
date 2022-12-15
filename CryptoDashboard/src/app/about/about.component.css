@@ -4,6 +4,7 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: Ubuntu;
 }
 
 .name {
@@ -12,6 +13,7 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: Ubuntu;
 }
 
 .job {
@@ -20,10 +22,28 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: Ubuntu;
 }
 
 .fiche {
   background-color: grey;
   border: 10px solid white;
+  border-radius: 30px;
   text-align: center;
+  padding: 20px;
+}
+
+.pp {
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+}
+
+.link {
+  font-size: 36px;
+  color: #0e63a8;
+}
+
+.desc {
+  font-family: Ubuntu;
 }
