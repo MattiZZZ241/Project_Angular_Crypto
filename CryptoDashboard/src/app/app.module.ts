@@ -18,7 +18,9 @@ import { AboutComponent } from './about/about.component';
     BodyComponent,
     SingleCryptoInListComponent,
     AllCryptoInListComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
