@@ -17,7 +17,6 @@ export class CryptoComponent implements OnInit {
   @Output() idOut = new EventEmitter<string>()
 
 
-  click_number: number
   hide: boolean
 
 
@@ -30,7 +29,6 @@ export class CryptoComponent implements OnInit {
     this.current_price = "none"
     this.market_cap = "none"
     this.market_cap_rank = "none"
-    this.click_number = 0
     this.hide = true
 }
 
@@ -43,9 +41,7 @@ export class CryptoComponent implements OnInit {
   }
 
   onClick = () : void => {
-    this.click_number++;
     this.hide = ! this.hide
-    console.log(this.click_number)
     this.idOut.emit(this.id)
   }
 
