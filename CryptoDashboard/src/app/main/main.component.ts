@@ -32,7 +32,6 @@ export class MainComponent implements OnInit {
 ​
 
     })
-    this.userForm = new UntypedFormGroup({ search: this.searchCtrl});​
     this.mySub = this.searchCtrl.valueChanges.pipe(debounceTime(1000)).subscribe(​
 
       (data) => this.submit()​
@@ -44,7 +43,11 @@ export class MainComponent implements OnInit {
 ngOnInit(): void {​
 
     this.cryptoService.getCryptos().subscribe(
-    x => this.cryptos = x
+      (data) => {
+
+        this.cryptos = data
+        this.DisplayCryptos = data
+      }
 
     )
 
@@ -64,7 +67,7 @@ ngOnInit(): void {​
 
   submit() {
       let search = this.searchCtrl.value
-      this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.indexOf(search) >= -1 )
+      this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.indexOf(search) >= 0)
 
       console.log(this.DisplayCryptos)​
       console.log(this.searchCtrl.value)​
