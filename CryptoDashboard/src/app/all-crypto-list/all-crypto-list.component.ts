@@ -8,22 +8,8 @@ import { FormControl, UntypedFormGroup } from '@angular/forms';
 })
 export class AllCryptoComponent implements OnInit {
 
-  protected userForm: UntypedFormGroup​
-
-  protected searchCtrl: FormControl<string>​​
 
   constructor() {​
-      this.searchCtrl = new FormControl()​
-
-      this.userForm = new UntypedFormGroup​
-
-      ({​
-
-          search: this.searchCtrl,​
-​
-
-      })
-      this.userForm = new UntypedFormGroup({ search: this.searchCtrl});​
 
   }
 
@@ -33,9 +19,6 @@ export class AllCryptoComponent implements OnInit {
 
   submit() {
 
-      console.log(this.userForm.value)​
-
-      console.log(this.searchCtrl.value)​
 
   }
 
