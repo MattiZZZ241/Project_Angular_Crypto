@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
-import { debounceTime, Subscription } from 'rxjs';
+import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
 import { CryptoService } from '../crypto.service';
 
 @Component({
@@ -48,10 +48,8 @@ ngOnInit(): void {​
         this.cryptos = data
         this.DisplayCryptos = data
       }
-
     )
 
-    this.DisplayCryptos ​= this.cryptos
     this.userForm = new UntypedFormGroup({ search: this.searchCtrl});​
 }
   onId = (id: string) : void => {
@@ -66,17 +64,32 @@ ngOnInit(): void {​
 
 
   submit() {
-      let search = this.searchCtrl.value
-      this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.indexOf(search) >= 0)
+      let search = this.searchCtrl.value?.toLowerCase() || ""
 
+      //pour la barre de recherche lorsqu'on écrit dedans (ne pas enlver c'est pour plus tard)
+      /*this.cryptoService.postSearchCrypto(search).subscribe(
+        (data) => {
+          this.cryptos = data
+        }
+      )*/
+
+        // number of letter search > 3
+
+        if (search.length > 4){
+          search = search.charAt(0).toUpperCase() + search.slice(1)
+          this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.indexOf(search) >= 0)
+
+        } else{
+          this.cryptos = this.DisplayCryptos.filter(e1 => e1.symbol.indexOf(search) >= 0)
+
+        }
+
+      console.log(this.cryptos)​
       console.log(this.DisplayCryptos)​
-      console.log(this.searchCtrl.value)​
+      console.log(search)​
 
   }
 
 
-  Displaymessage(){
 
-    return this.searchCtrl.value
-  }
 }
