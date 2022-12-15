@@ -9,6 +9,7 @@ import { AllCryptoInListComponent } from './all-crypto-in-list/all-crypto-in-lis
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,7 @@ import { MainComponent } from './main/main.component';
     BodyComponent,
     SingleCryptoInListComponent,
     AllCryptoInListComponent,
-    FooterComponent,
-    MainComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
