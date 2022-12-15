@@ -3,28 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './body/body.component';
-import { SingleCryptoInListComponent } from './single-crypto-in-list/single-crypto-in-list.component';
-import { AllCryptoInListComponent } from './all-crypto-in-list/all-crypto-in-list.component';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { BodyComponent } from './body/body.component';
 import { MainComponent } from './main/main.component';
-import { AboutComponent } from './about/about.component';
+import { CryptoComponent } from './crypto/crypto.component';
+import { AllCryptoComponent } from './all-crypto-list/all-crypto-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
     HeaderComponent,
     BodyComponent,
-    SingleCryptoInListComponent,
-    AllCryptoInListComponent,
-    FooterComponent,
     MainComponent,
-    AboutComponent
+    CryptoComponent,
+    AllCryptoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

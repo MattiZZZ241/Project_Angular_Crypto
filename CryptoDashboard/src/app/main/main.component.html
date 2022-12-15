@@ -1,1 +1,23 @@
-<app-all-crypto-in-list></app-all-crypto-in-list>
+
+
+  <div class="w3-col crypto-all">
+
+
+<form (ngSubmit)="submit()" [formGroup]="userForm">​
+
+  <div>​
+
+      <label>Search</label>​
+
+      <input type="text" formControlName="search">​
+
+  </div>​
+
+  <button type="submit">Search</button>​
+
+  </form>​
+
+  <app-crypto (nameOut)="onName($event)" [name]="crypto.name" [symbol]="crypto.symbol" *ngFor="let crypto of cryptos"></app-crypto>
+
+  </div>
+
