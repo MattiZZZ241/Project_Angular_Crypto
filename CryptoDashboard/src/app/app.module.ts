@@ -8,6 +8,7 @@ import { SingleCryptoInListComponent } from './single-crypto-in-list/single-cryp
 import { AllCryptoInListComponent } from './all-crypto-in-list/all-crypto-in-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     BodyComponent,
     SingleCryptoInListComponent,
     AllCryptoInListComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
