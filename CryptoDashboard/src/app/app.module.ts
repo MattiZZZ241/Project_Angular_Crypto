@@ -11,7 +11,7 @@ import { CryptoComponent } from './crypto/crypto.component';
 import { AllCryptoComponent } from './all-crypto-list/all-crypto-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CryptinfoComponent } from './cryptinfo/cryptinfo.component'
+import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { CryptinfoComponent } from './cryptinfo/cryptinfo.component'
     MainComponent,
     CryptoComponent,
     AllCryptoComponent,
-    CryptinfoComponent,
+    CoinsinfoComponent,
   ],
   imports: [
     BrowserModule,
