@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { CryptinfoComponent } from './cryptinfo/cryptinfo.component';
+import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component';
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: 'main', component: MainComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: MainComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'cryptinfo', component: CryptinfoComponent}
+  { path: 'coins/:id', component: CoinsinfoComponent}
 ];
 
 @NgModule({

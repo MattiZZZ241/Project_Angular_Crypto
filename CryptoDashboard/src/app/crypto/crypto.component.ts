@@ -1,5 +1,4 @@
 import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
-
 @Component({
   selector: 'app-crypto',
   templateUrl: './crypto.component.html',
@@ -42,7 +41,10 @@ export class CryptoComponent implements OnInit {
 
   onClick = () : void => {
     this.hide = ! this.hide
+
     this.idOut.emit(this.id)
+
+
   }
 
 }

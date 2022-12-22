@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
-import { CryptoService } from '../crypto.service';
+import { CryptoService } from '../cryptoListe.service';
 
 @Component({
   selector: 'app-main',
@@ -44,7 +44,6 @@ ngOnInit(): void {​
 
     this.cryptoService.getCryptos().subscribe(
       (data) => {
-
         this.cryptos = data
         this.DisplayCryptos = data
       }
@@ -73,7 +72,7 @@ ngOnInit(): void {​
         }
       )*/
 
-        // number of letter search > 3
+        // number of letter search > 4 -> faut changer ça
 
         if (search.length > 4){
           search = search.charAt(0).toUpperCase() + search.slice(1)
