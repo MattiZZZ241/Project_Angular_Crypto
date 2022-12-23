@@ -12,6 +12,7 @@ import { AllCryptoComponent } from './all-crypto-list/all-crypto-list.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
