@@ -10,7 +10,8 @@ import { MainComponent } from './main/main.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { AllCryptoComponent } from './all-crypto-list/all-crypto-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -20,15 +21,16 @@ import { HttpClientModule } from '@angular/common/http'
     BodyComponent,
     MainComponent,
     CryptoComponent,
-    AllCryptoComponent,
+    AllCryptoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
