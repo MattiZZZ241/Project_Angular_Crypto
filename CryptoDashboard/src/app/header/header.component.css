@@ -1,8 +1,16 @@
 .general {
     height: 6%;
     border: 1px solid;
+    background-color: #1B2A41;
+    color: #CCC9DC;
+    font-size: large;
+    border: none;
 }
 
 .gras {
     font-weight: bold;
+}
+
+.tab {
+  text-decoration: none;
 }

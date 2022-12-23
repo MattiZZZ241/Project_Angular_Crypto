@@ -1,15 +1,27 @@
+content {
+  background-color: #CCC9DC;
+}
+
 #titre {
     font-weight: bold;
-    color: #000000;
+    color: #1B2A41;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: Ubuntu;
 }
 
+.fiche {
+  background-color: #1B2A41;
+  border: 10px solid #CCC9DC;
+  border-radius: 30px;
+  text-align: center;
+  padding: 20px;
+}
+
 .name {
     font-weight: bold;
-    color: #000000;
+    color: #CCC9DC;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -18,32 +30,27 @@
 
 .job {
     font-weight: bold;
-    color: #000000;
+    color: #CCC9DC;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: Ubuntu;
 }
 
-.fiche {
-  background-color: grey;
-  border: 10px solid white;
-  border-radius: 30px;
-  text-align: center;
-  padding: 20px;
-}
-
 .pp {
   border-radius: 50%;
   width: 50%;
   height: 50%;
-}
-
-.link {
-  font-size: 36px;
-  color: #0e63a8;
+  box-shadow: 10px 10px 10px #0C1821;
 }
 
 .desc {
   font-family: Ubuntu;
+  color: #CCC9DC;
+}
+
+
+.link {
+  font-size: 36px;
+  color: #CCC9DC;
 }
