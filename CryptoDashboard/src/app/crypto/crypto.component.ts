@@ -43,8 +43,6 @@ export class CryptoComponent implements OnInit {
     this.hide = ! this.hide
 
     this.idOut.emit(this.id)
-
-
   }
 
 }

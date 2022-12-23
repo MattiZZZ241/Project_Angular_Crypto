@@ -5,6 +5,8 @@
     color: #CCC9DC;
     font-size: large;
     border: none;
+    box-shadow: 0 0 10px #0C1821;
+    position: fixed;
 }
 
 .gras {
@@ -13,4 +15,9 @@
 
 .tab {
   text-decoration: none;
+}
+
+#logo-nav {
+  height: 50px;
+  width: 316px;
 }
