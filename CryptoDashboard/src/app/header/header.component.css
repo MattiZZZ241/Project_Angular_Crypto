@@ -1,8 +1,23 @@
 .general {
     height: 6%;
     border: 1px solid;
+    background-color: #1B2A41;
+    color: #CCC9DC;
+    font-size: large;
+    border: none;
+    box-shadow: 0 0 10px #0C1821;
+    position: fixed;
 }
 
 .gras {
     font-weight: bold;
+}
+
+.tab {
+  text-decoration: none;
+}
+
+#logo-nav {
+  height: 50px;
+  width: 316px;
 }

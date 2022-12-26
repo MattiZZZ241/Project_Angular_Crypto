@@ -1,6 +1,5 @@
-
-.body{
-  width:100%;
-  height: 84%;
-  background-color: blueviolet;
+content {
+  background-color: #CCC9DC;
+  /* height: 100%; */
+  width: 100%;
 }
