@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { interval, map, Observable, Subscription, take } from 'rxjs';
-import { TmplAstBoundAttribute } from '@angular/compiler';
+import { interval, map, Observable, Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
