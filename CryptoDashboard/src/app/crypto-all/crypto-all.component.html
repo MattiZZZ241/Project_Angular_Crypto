@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let crypto of cryptos">
+      <tr *ngFor="let crypto of cryptos" routerLink="/coins/{{crypto.id}}">
         <td>{{crypto.market_cap_rank}}</td>
         <td><img src={{crypto.image}} style="height: 30px; width: 30px;"></td>
         <td>{{crypto.name}}</td>
