@@ -6,9 +6,8 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
+import { CryptoAllComponent } from './crypto-all/crypto-all.component';
 import { MainComponent } from './main/main.component';
-import { CryptoComponent } from './crypto/crypto.component';
-import { AllCryptoComponent } from './all-crypto-list/all-crypto-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
@@ -20,9 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     FooterComponent,
     HeaderComponent,
     BodyComponent,
+    CryptoAllComponent,
     MainComponent,
-    CryptoComponent,
-    AllCryptoComponent,
     CoinsinfoComponent,
   ],
   imports: [
