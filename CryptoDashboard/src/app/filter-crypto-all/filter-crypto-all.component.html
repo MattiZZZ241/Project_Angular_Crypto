@@ -1,0 +1,14 @@
+<form (ngSubmit)="submit()" [formGroup]="userForm">​
+  <div>​
+    <label>Search</label>​
+    <input type="text" formControlName="search">​
+<select formControlName="filterCurrency">
+  <option selected="selected" value="usd">usd</option>
+  <option value="eur">eur</option>
+</select>
+<select formControlName="filterOrder">
+  <option selected="selected" value="market_cap_desc">market_cap_desc</option>
+  <option value="market_cap_asc">market_cap_asc</option>
+</select>
+  </div>
+</form>

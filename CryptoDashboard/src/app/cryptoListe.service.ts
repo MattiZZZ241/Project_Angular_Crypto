@@ -36,10 +36,10 @@ export class CryptoService {
       );
   }
 
-  getCryptos(): Observable<any> {
+  getCryptos(currency :string, order:string): Observable<any> {
     return this.httpClient
       .get<any[]>(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1'
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency='+currency+'&order='+order+'&per_page=100&page=1'
       )
       .pipe(
         map((tab: any[]) => {
