@@ -1,0 +1,10 @@
+<form (ngSubmit)="submit()" [formGroup]="userForm">​
+  <div>​
+    <label>Search</label>​
+    <input type="text" formControlName="search">​
+  </div>​
+  <div *ngFor="let crypto of cryptos" routerLink="/coins/{{crypto.id}}">
+    <div>{{crypto.name}}</div>
+    <div>{{crypto.symbol}}</div>
+  </div>
+</form>​

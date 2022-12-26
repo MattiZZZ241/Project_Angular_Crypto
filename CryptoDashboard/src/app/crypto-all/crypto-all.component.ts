@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
-import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
+import { debounceTime, delay, Subscription, UnsubscriptionError } from 'rxjs';
 import { CryptoService } from '../cryptoListe.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class CryptoAllComponent implements OnInit {
   currency: string = 'usd'
   order: string = 'market_cap_desc'
   search_input: string = ''
+  page: string = '1'
 
 
   cryptos: Array<any> = new Array<any>()
@@ -22,39 +23,53 @@ export class CryptoAllComponent implements OnInit {
 }
 ​
 
-ngOnInit(): void {​
+ngOnInit(): void {
 
-    this.cryptoService.getCryptos(this.currency,this.order).subscribe(
+    this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
       (data) => {
         this.cryptos = data
-        this.DisplayCryptos = data
       }
     )
-    console.log("yolo")
 
 }
 
 search = (searchTabInputValueEnfant: Array<string>) : void => {
 
-  this.search_input = searchTabInputValueEnfant[0]
-  this.currency = searchTabInputValueEnfant[1]
-  this.order = searchTabInputValueEnfant[2]
+  //this.search_input = searchTabInputValueEnfant[0]
+  this.currency = searchTabInputValueEnfant[0]
+  this.order = searchTabInputValueEnfant[1]
 
-  this.cryptoService.getCryptos(this.currency,this.order).subscribe(
+  console.log(this.search_input)
+  console.log(this.currency)
+  console.log(this.order)
+
+  this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
     (data) => {
-      this.cryptos = data
-      this.DisplayCryptos = data
+        //this.checkIdOrSymbol(this.search_input.toLowerCase())
+        this.cryptos = data
     }
   )
-  console.log("yep")
 
 
-  this.checkIdOrSymbol(this.search_input.toLowerCase())
 
 }
 
 
-checkIdOrSymbol(search : string){
+
+/*getAllCrypto(){
+  while(parseInt(this.page) < 10 ){
+    this.page = (parseInt(this.page) + 1).toString()
+    this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
+      (data) => {
+        this.DisplayCryptos = this.DisplayCryptos.concat(data)
+        console.log(this.cryptos)
+        console.log(this.DisplayCryptos)
+      }
+    )
+}
+}*/
+
+/*checkIdOrSymbol(search : string){
 
     switch (this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0).length ){
 
@@ -70,7 +85,7 @@ checkIdOrSymbol(search : string){
           this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0)
         break
     }
-  }
+  }*/
 
 
 }

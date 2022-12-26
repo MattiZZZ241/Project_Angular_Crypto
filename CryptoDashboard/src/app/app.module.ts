@@ -12,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FilterCryptoAllComponent } from './filter-crypto-all/filter-crypto-all.component'
+import { FilterCryptoAllComponent } from './filter-crypto-all/filter-crypto-all.component';
+import { SearchCryptoComponent } from './search-crypto/search-crypto.component'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FilterCryptoAllComponent } from './filter-crypto-all/filter-crypto-all.
     MainComponent,
     CoinsinfoComponent,
     FilterCryptoAllComponent,
+    SearchCryptoComponent,
   ],
   imports: [
     BrowserModule,

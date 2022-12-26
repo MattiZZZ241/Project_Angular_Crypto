@@ -10,7 +10,6 @@ import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
 export class FilterCryptoAllComponent implements OnInit {
   protected userForm: UntypedFormGroup​
 
-  protected searchCtrl: FormControl<string|null>
   protected filterCurrency: FormControl<string|null>
   protected filterOrder: FormControl<string|null>
 
@@ -23,7 +22,6 @@ export class FilterCryptoAllComponent implements OnInit {
   constructor() {
 
 
-    this.searchCtrl = new FormControl<string>("")
     this.filterCurrency = new FormControl<string>("usd")
     this.filterOrder = new FormControl<string>("market_cap_desc")
 
@@ -32,16 +30,11 @@ export class FilterCryptoAllComponent implements OnInit {
 
     ({​
 
-        search: this.searchCtrl,​
         filterCurrency : this.filterCurrency,​
         filterOrder : this.filterOrder
 ​
     })
-    this.mySub = this.searchCtrl.valueChanges.pipe(debounceTime(1000)).subscribe(​
 
-      (data) => this.submit()​
-
-    );
     this.mySub = this.filterCurrency.valueChanges.subscribe(​
 
       (data) => this.submit()​
@@ -56,7 +49,7 @@ export class FilterCryptoAllComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userForm = new UntypedFormGroup({ search: this.searchCtrl, filterCurrency: this.filterCurrency, filterOrder: this.filterOrder});​
+    this.userForm = new UntypedFormGroup({ filterCurrency: this.filterCurrency, filterOrder: this.filterOrder});​
 
   }
 
@@ -68,9 +61,9 @@ export class FilterCryptoAllComponent implements OnInit {
       }
     )*/
 
-      this.FilterTable[0] = this.searchCtrl.value?.toLowerCase() || ""
-      this.FilterTable[1] = this.filterCurrency.value || "usd"
-      this.FilterTable[2] = this.filterOrder.value || "market_cap_desc"
+      //this.FilterTable[0] = this.searchCtrl.value?.toLowerCase() || ""
+      this.FilterTable[0] = this.filterCurrency.value || "usd"
+      this.FilterTable[1] = this.filterOrder.value || "market_cap_desc"
 
       this.searchOut.emit(this.FilterTable)
 
