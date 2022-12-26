@@ -63,32 +63,32 @@ ngOnInit(): void {​
 
 
   submit() {
-      let search = this.searchCtrl.value?.toLowerCase() || ""
+    //pour la barre de recherche lorsqu'on écrit dedans (ne pas enlver c'est pour plus tard)
+    /*this.cryptoService.postSearchCrypto(search).subscribe(
+      (data) => {
+        this.cryptos = data
+      }
+    )*/
 
-      //pour la barre de recherche lorsqu'on écrit dedans (ne pas enlver c'est pour plus tard)
-      /*this.cryptoService.postSearchCrypto(search).subscribe(
-        (data) => {
-          this.cryptos = data
-        }
-      )*/
+    this.checkIdOrSymbol(this.searchCtrl.value?.toLowerCase() || "")
 
-        // number of letter search > 4 -> faut changer ça
+}
 
-        if (search.length > 4){
-          search = search.charAt(0).toUpperCase() + search.slice(1)
-          this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.indexOf(search) >= 0)
+checkIdOrSymbol(search : string){
 
-        } else{
-          this.cryptos = this.DisplayCryptos.filter(e1 => e1.symbol.indexOf(search) >= 0)
+    switch (this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0).length ){
 
-        }
+      case 0:
+          if(this.DisplayCryptos.filter(e1 => e1.symbol.toLowerCase().indexOf(search) >= 0).length > 0){
+            this.cryptos = this.DisplayCryptos.filter(e1 => e1.symbol.toLowerCase().indexOf(search) >= 0)
+          }else {
+            alert("Aucun résultat")
+          }
+        break
 
-      console.log(this.cryptos)​
-      console.log(this.DisplayCryptos)​
-      console.log(search)​
-
+      default:
+        this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0)
+        break
+    }
   }
-
-
-
 }
