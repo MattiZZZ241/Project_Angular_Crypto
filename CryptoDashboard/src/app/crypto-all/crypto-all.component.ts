@@ -13,6 +13,8 @@ export class CryptoAllComponent implements OnInit {
   DisplayCryptos: Array<any> = new Array<any>()
   id_parent: string
   mySub: Subscription
+  displayedColumns: string[] = ['market_cap_rank', 'name', 'symbol', 'current_price', 'market_cap'];
+  dataSource = this.cryptos
 
   protected userForm: UntypedFormGroup​
 

@@ -6,25 +6,26 @@
     </div>​
     <button type="submit">Search</button>​
   </form>
-  <table mat-table>
+
+  <table class="tab">
     <thead>
       <tr>
-        <th>Rang</th>
-        <th>Logo</th>
-        <th>Nom</th>
-        <th>Symbole</th>
-        <th>Prix</th>
-        <th>Market Cap</th>
+        <th class="rank-head">Rang</th>
+        <th class="logo-head">Logo</th>
+        <th class="name-head">Nom</th>
+        <th class="symbol-head">Symbole</th>
+        <th class="price-head">Prix</th>
+        <th class="mk-cap-head">Market Cap</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let crypto of cryptos" routerLink="/coins/{{crypto.id}}">
-        <td>{{crypto.market_cap_rank}}</td>
-        <td><img src={{crypto.image}} style="height: 30px; width: 30px;"></td>
-        <td>{{crypto.name}}</td>
-        <td>{{crypto.symbol}}</td>
-        <td>{{crypto.current_price}}</td>
-        <td>{{crypto.market_cap}}</td>
+      <tr *ngFor="let crypto of cryptos" routerLink="/coins/{{crypto.id}}" class="line">
+        <td class="rank">{{crypto.market_cap_rank}}</td>
+        <td class="logo"><img src={{crypto.image}} style="height: 30px; width: 30px;"></td>
+        <td class="name">{{crypto.name}}</td>
+        <td class="symbol">{{crypto.symbol}}</td>
+        <td class="price">{{crypto.current_price}}</td>
+        <td class="mk-cap">{{crypto.market_cap}}</td>
       </tr>
     </tbody>
   </table>
