@@ -14,6 +14,9 @@ import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterCryptoAllComponent } from './filter-crypto-all/filter-crypto-all.component';
 import { SearchCryptoComponent } from './search-crypto/search-crypto.component'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { SearchCryptoComponent } from './search-crypto/search-crypto.component'
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatAutocompleteModule,
+    MatTableModule,
+    MatPaginatorModule,
     BrowserAnimationsModule
   ],
   providers: [],

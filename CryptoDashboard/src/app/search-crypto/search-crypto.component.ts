@@ -9,7 +9,7 @@ import { SearchCryptoService } from '../search-crypto.service';
   styleUrls: ['./search-crypto.component.css']
 })
 export class SearchCryptoComponent implements OnInit {
-  protected userForm: UntypedFormGroup​
+  protected userForm: UntypedFormGroup
 
   protected searchCtrl: FormControl<string|null>
   @Output() searchOut = new EventEmitter<Array<string>>()
@@ -18,6 +18,7 @@ export class SearchCryptoComponent implements OnInit {
 
 
   constructor(private SearchCryptoService: SearchCryptoService) {
+
     this.searchCtrl = new FormControl<string>("")
 
     this.userForm = new UntypedFormGroup​
@@ -32,7 +33,7 @@ export class SearchCryptoComponent implements OnInit {
       (data) => this.submit()​
 
     );
-   }
+}
 
   ngOnInit(): void {
     this.userForm = new UntypedFormGroup({ search: this.searchCtrl});​
@@ -40,7 +41,7 @@ export class SearchCryptoComponent implements OnInit {
   }
 
   submit() {
-
+    if(this.searchCtrl.value != "") {
     this.SearchCryptoService.getSearchCrypto(this.searchCtrl.value).subscribe(
       (data) => {
         this.cryptos = data
@@ -48,6 +49,10 @@ export class SearchCryptoComponent implements OnInit {
       }
     )
 
+    }
+    else {
+      this.cryptos = []
+    }
 
 
 
