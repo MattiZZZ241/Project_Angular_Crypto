@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,OnDestroy,Input,Output, EventEmitter } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
 import { SearchCryptoService } from '../search-crypto.service';
@@ -8,7 +8,7 @@ import { SearchCryptoService } from '../search-crypto.service';
   templateUrl: './search-crypto.component.html',
   styleUrls: ['./search-crypto.component.css']
 })
-export class SearchCryptoComponent implements OnInit {
+export class SearchCryptoComponent implements OnInit,OnDestroy {
   protected userForm: UntypedFormGroup
 
   protected searchCtrl: FormControl<string|null>
@@ -18,7 +18,6 @@ export class SearchCryptoComponent implements OnInit {
 
 
   constructor(private SearchCryptoService: SearchCryptoService) {
-
     this.searchCtrl = new FormControl<string>("")
 
     this.userForm = new UntypedFormGroup​
@@ -40,9 +39,14 @@ export class SearchCryptoComponent implements OnInit {
 
   }
 
+  ngOnDestroy(): void {
+    this.mySub.unsubscribe()
+    console.log("unsubscribesearch")
+  }
+
   submit() {
     if(this.searchCtrl.value != "") {
-    this.SearchCryptoService.getSearchCrypto(this.searchCtrl.value).subscribe(
+    this.mySub = this.SearchCryptoService.getSearchCrypto(this.searchCtrl.value).subscribe(
       (data) => {
         this.cryptos = data
         console.log(this.cryptos)
@@ -52,6 +56,7 @@ export class SearchCryptoComponent implements OnInit {
     }
     else {
       this.cryptos = []
+      this.mySub.unsubscribe()
     }
 
 

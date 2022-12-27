@@ -5,9 +5,9 @@
          formControlName="search"
          [matAutocomplete]="auto"
          class="example-input">
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let crypto of cryptos" [value]="crypto.name" routerLink="/coins/{{crypto.id}}">
-      <img [src]="crypto.thumb" style="width: 5%;height:5%;">
+  <mat-autocomplete #auto="matAutocomplete" >
+    <mat-option *ngFor="let crypto of cryptos" [value]="crypto.name" routerLink="/coins/{{crypto.id}}" >
+      <img [src]="crypto.thumb" style="width: 5%;height:5%;" >
     {{crypto.name}} <span style="color: red;">{{crypto.symbol}} </span>
     </mat-option>
   </mat-autocomplete>

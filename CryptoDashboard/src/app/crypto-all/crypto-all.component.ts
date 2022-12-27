@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, OnDestroy } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, delay, Subscription, UnsubscriptionError } from 'rxjs';
 import { CryptoService } from '../cryptoListe.service';
@@ -8,29 +8,39 @@ import { CryptoService } from '../cryptoListe.service';
   templateUrl: './crypto-all.component.html',
   styleUrls: ['./crypto-all.component.css']
 })
-export class CryptoAllComponent implements OnInit {
+export class CryptoAllComponent implements OnInit, OnDestroy {
 
   currency: string = 'usd'
   order: string = 'market_cap_desc'
   search_input: string = ''
   page: string = '1'
-
+  subscription1: Subscription
+  subscription2: Subscription
 
   cryptos: Array<any> = new Array<any>()
   DisplayCryptos: Array<any> = new Array<any>()
   constructor(private cryptoService: CryptoService) {
+    this.subscription1 = Subscription.EMPTY;
+    this.subscription2 = Subscription.EMPTY;
+
 
 }
 ​
 
 ngOnInit(): void {
 
-    this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
+    this.subscription1 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
       (data) => {
         this.cryptos = data
       }
     )
 
+}
+
+ngOnDestroy(): void {
+  this.subscription1.unsubscribe()
+  this.subscription2.unsubscribe()
+  console.log("unsubscribeallcryptoall")
 }
 
 search = (searchTabInputValueEnfant: Array<string>) : void => {
@@ -39,11 +49,7 @@ search = (searchTabInputValueEnfant: Array<string>) : void => {
   this.currency = searchTabInputValueEnfant[0]
   this.order = searchTabInputValueEnfant[1]
 
-  console.log(this.search_input)
-  console.log(this.currency)
-  console.log(this.order)
-
-  this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
+  this.subscription2 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
     (data) => {
         //this.checkIdOrSymbol(this.search_input.toLowerCase())
         this.cryptos = data

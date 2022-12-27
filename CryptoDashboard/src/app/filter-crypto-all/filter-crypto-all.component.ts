@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,OnDestroy,Input,Output, EventEmitter } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
 
@@ -7,13 +7,14 @@ import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
   templateUrl: './filter-crypto-all.component.html',
   styleUrls: ['./filter-crypto-all.component.css']
 })
-export class FilterCryptoAllComponent implements OnInit {
+export class FilterCryptoAllComponent implements OnInit,OnDestroy {
   protected userForm: UntypedFormGroup​
 
   protected filterCurrency: FormControl<string|null>
   protected filterOrder: FormControl<string|null>
 
-  mySub: Subscription
+  subscription1: Subscription
+  subscription2: Subscription
 
   @Output() searchOut = new EventEmitter<Array<string>>()
 
@@ -35,22 +36,29 @@ export class FilterCryptoAllComponent implements OnInit {
 ​
     })
 
-    this.mySub = this.filterCurrency.valueChanges.subscribe(​
+    this.subscription1 = this.filterCurrency.valueChanges.subscribe(​
 
       (data) => this.submit()​
 
     );
-    this.mySub = this.filterOrder.valueChanges.subscribe(​
+    this.subscription2 = this.filterOrder.valueChanges.subscribe(​
 
     (data) => this.submit()​
 
     );
+    this.subscription2 = Subscription.EMPTY;
 
   }
 
   ngOnInit(): void {
     this.userForm = new UntypedFormGroup({ filterCurrency: this.filterCurrency, filterOrder: this.filterOrder});​
 
+  }
+
+  ngOnDestroy(): void {
+    this.subscription1.unsubscribe()
+    this.subscription2.unsubscribe()
+    console.log("unsubscribefilter")
   }
 
   submit() {
