@@ -1,0 +1,55 @@
+div {
+  color: #C5C6C7;
+}
+
+img {
+  width: 60px;
+  height: 60px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 0px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.left {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.right {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.infos-head {
+  border: 1px solid #45A29E;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.coin-title {
+  font-size: 50px;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.coin-symbol {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.coin-rank {
+  background-color: #1F2833;
+  padding: 5px;
+  border-radius: 5px;
+  color: #C5C6C7;
+}

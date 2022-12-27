@@ -1,23 +1,19 @@
-<p>cryptinfo works!</p>
-<div>
-  <p>
-    <span>Rank: {{crypto.market_cap_rank}}</span>
-    <span>Symbol: {{crypto.symbol}}</span>
-    <span>Price: {{crypto.current_price}}</span>
-    <span>Market Cap: {{crypto.market_cap}}</span>
-    <span>Market Cap Rank: {{crypto.market_cap_rank}}</span>
-    <span>Market Cap Change 24h: {{crypto.market_cap_change_24h}}</span>
-    <span>Market Cap Change Percentage 24h: {{crypto.market_cap_change_percentage_24h}}</span>
-    <span>Market Cap Change Percentage 7d: {{crypto.market_cap_change_percentage_7d}}</span>
-    <span>Market Cap Change Percentage 14d: {{crypto.market_cap_change_percentage_14d}}</span>
-    <span>Market Cap Change Percentage 30d: {{crypto.market_cap_change_percentage_30d}}</span>
-    <span>Market Cap Change Percentage 60d: {{crypto.market_cap_change_percentage_60d}}</span>
-    <span>Market Cap Change Percentage 200d: {{crypto.market_cap_change_percentage_200d}}</span>
-    <span>Market Cap Change Percentage 1y: {{crypto.market_cap_change_percentage_1y}}</span>
+<div class="container">
+  <div class="left">
+    <div class="infos-head">
+      <h1 class="coin-title"><img src="{{crypto.image.small}}"> {{crypto.name}}</h1>
+      <p class="coin-symbol">({{crypto.symbol.toUpperCase()}}) <span class="coin-rank"> Rang : #{{crypto.market_cap_rank}}</span></p>
+    </div>
+    <div class="infos-body">
+      <span>Prix: {{crypto}}</span>
+    </div>
+  </div>
+  <div class="right">
 
-
-  </p>
-  <div>{{crypto.description.en}}</div>
+  </div>
 </div>
 
+<div>{{crypto.id}}</div>
+<div>{{crypto}}</div>
 
+<div>{{crypto.description.en}}</div>
