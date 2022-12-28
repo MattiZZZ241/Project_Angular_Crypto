@@ -58,25 +58,16 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.subscription1.unsubscribe()
     this.subscription2.unsubscribe()
-    console.log("unsubscribefilter")
   }
 
   submit() {
-    //pour la barre de recherche lorsqu'on écrit dedans (ne pas enlver c'est pour plus tard)
-    /*this.cryptoService.postSearchCrypto(search).subscribe(
-      (data) => {
-        this.cryptos = data
-      }
-    )*/
 
-      //this.FilterTable[0] = this.searchCtrl.value?.toLowerCase() || ""
       this.FilterTable[0] = this.filterCurrency.value || "usd"
       this.FilterTable[1] = this.filterOrder.value || "market_cap_desc"
 
       this.searchOut.emit(this.FilterTable)
 
 }
-
 
 
 }
