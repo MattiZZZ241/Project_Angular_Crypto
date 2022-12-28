@@ -2,6 +2,7 @@ import { Component, OnInit,Input, OnDestroy } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, delay, Subscription, UnsubscriptionError } from 'rxjs';
 import { CryptoService } from '../cryptoListe.service';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-crypto-all',
@@ -9,7 +10,7 @@ import { CryptoService } from '../cryptoListe.service';
   styleUrls: ['./crypto-all.component.css']
 })
 export class CryptoAllComponent implements OnInit, OnDestroy {
-
+  loading$ = this.loader.loading$;
   currency: string = 'usd'
   order: string = 'market_cap_desc'
   search_input: string = ''
@@ -20,7 +21,7 @@ export class CryptoAllComponent implements OnInit, OnDestroy {
 
   cryptos: Array<any> = new Array<any>()
   DisplayCryptos: Array<any> = new Array<any>()
-  constructor(private cryptoService: CryptoService) {
+  constructor(private cryptoService: CryptoService,public loader: LoadingService) {
     this.subscription1 = Subscription.EMPTY;
     this.subscription2 = Subscription.EMPTY;
 
@@ -33,7 +34,9 @@ ngOnInit(): void {
     this.subscription1 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
       (data) => {
         this.cryptos = data
+
       }
+
     )
 
 }

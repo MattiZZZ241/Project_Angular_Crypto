@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+
 <div>
+  <mat-progress-spinner color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async">
+  </mat-progress-spinner>
   <p>
     <span>Name: {{crypto.name}}</span>
     <span>Symbol: {{crypto.symbol}}</span>

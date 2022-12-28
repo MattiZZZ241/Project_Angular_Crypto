@@ -27,6 +27,7 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
     this.filterOrder = new FormControl<string>("market_cap_desc")
 
 
+
     this.userForm = new UntypedFormGroup​
 
     ({​
@@ -38,12 +39,14 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
 
     this.subscription1 = this.filterCurrency.valueChanges.subscribe(​
 
-      (data) => this.submit()​
+      (data) => this.submit()
+      ​
 
     );
     this.subscription2 = this.filterOrder.valueChanges.subscribe(​
 
-    (data) => this.submit()​
+    (data) => this.submit()
+    ​
 
     );
     this.subscription2 = Subscription.EMPTY;
@@ -58,6 +61,8 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.subscription1.unsubscribe()
     this.subscription2.unsubscribe()
+
+
   }
 
   submit() {

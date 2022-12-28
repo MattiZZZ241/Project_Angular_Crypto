@@ -1,5 +1,7 @@
 <div class="w3-col crypto-all">
   <app-filter-crypto-all (searchOut)="search($event)"></app-filter-crypto-all>
+
+  <mat-progress-spinner class="spin" color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
   <table mat-table>
     <thead>
       <tr>
@@ -22,5 +24,6 @@
       </tr>
     </tbody>
   </table>
+
 </div>
 
