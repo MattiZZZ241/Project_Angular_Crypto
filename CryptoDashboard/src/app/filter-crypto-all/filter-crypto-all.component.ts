@@ -2,6 +2,7 @@ import { Component, OnInit,OnDestroy,Input,Output, EventEmitter } from '@angular
 import { FormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
 import { CurrencySymboleService } from '../currency-symbole.service';
+import { OrderfiltreService } from '../orderfiltre.service';
 
 @Component({
   selector: 'app-filter-crypto-all',
@@ -10,7 +11,8 @@ import { CurrencySymboleService } from '../currency-symbole.service';
 })
 export class FilterCryptoAllComponent implements OnInit,OnDestroy {
   protected userForm: UntypedFormGroup
-  currencies: Array<string> = new Array<string>()​
+  currencies: Array<string> = new Array<string>()
+  orders: Array<string> = new Array<string>()​
 
   protected filterCurrency: FormControl<string|null>
   protected filterOrder: FormControl<string|null>
@@ -22,12 +24,15 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
 
   FilterTable : Array<string> = new Array<string>()
 
-  constructor(private CurrencySymboleService: CurrencySymboleService) {
+  constructor(private CurrencySymboleService: CurrencySymboleService, private OrderfiltreService: OrderfiltreService) {
 
 
     this.filterCurrency = new FormControl<string>("usd")
     this.filterOrder = new FormControl<string>("market_cap_desc")
     this.currencies = this.CurrencySymboleService.getCurrency()
+    this.orders = this.OrderfiltreService.getOrder()
+
+
 
 
     this.userForm = new UntypedFormGroup​
