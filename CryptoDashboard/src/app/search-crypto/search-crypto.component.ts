@@ -27,7 +27,7 @@ export class SearchCryptoComponent implements OnInit,OnDestroy {
         search: this.searchCtrl,​
 ​
     })
-    this.mySub = this.searchCtrl.valueChanges.pipe(debounceTime(1000)).subscribe(​
+    this.mySub = this.searchCtrl.valueChanges.pipe(debounceTime(200)).subscribe(​
 
       (data) => this.submit()​
 
@@ -41,7 +41,6 @@ export class SearchCryptoComponent implements OnInit,OnDestroy {
 
   ngOnDestroy(): void {
     this.mySub.unsubscribe()
-    console.log("unsubscribesearch")
   }
 
   submit() {
