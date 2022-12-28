@@ -8,41 +8,42 @@ export class CurrencySymboleService {
   constructor() { }
 
   // tableau avec toutes les curenncies et leurs symboles
-  currencySymbole = [
+  currencySymbol = [
 
-    { currency: 'usd', symbole: '$' },
-    { currency: 'eur', symbole: '€' },
-    { currency: 'gbp', symbole: '£' },
-    { currency: 'aud', symbole: '$' },
-    { currency: 'cad', symbole: '$' },
-    { currency: 'chf', symbole: 'CHF' },
-    { currency: 'clp', symbole: '$' },
-    { currency: 'cny', symbole: '¥' },
-    { currency: 'czk', symbole: 'Kč' },
-    { currency: 'dkk', symbole: 'kr' },
-    { currency: 'hkd', symbole: '$' },
-    { currency: 'huf', symbole: 'Ft' },
-    { currency: 'idr', symbole: 'Rp' },
-    { currency: 'ils', symbole: '₪' },
-    { currency: 'inr', symbole: '₹' },
-    { currency: 'jpy', symbole: '¥' },
-    { currency: 'krw', symbole: '₩' },
-    { currency: 'mxn', symbole: '$' },
-    { currency: 'myr', symbole: 'RM' },
-    { currency: 'nok', symbole: 'kr' },
-    { currency: 'nzd', symbole: '$' },
-    { currency: 'php', symbole: '₱' },
-    { currency: 'pkr', symbole: '₨' },
-    { currency: 'pln', symbole: 'zł' },
-    { currency: 'rub', symbole: '₽' },
-    { currency: 'sek', symbole: 'kr' },
-    { currency: 'sgd', symbole: '$' },
-    { currency: 'thb', symbole: '฿' },
-    { currency: 'try', symbole: '₺' },
-    { currency: 'twd', symbole: '$' },
-    { currency: 'zar', symbole: 'R' },
-    { currency: 'btc', symbole: '฿' },
-    { currency: 'eth', symbole: 'Ξ' },
+    { currency: 'usd', symbol: '$' },
+    { currency: 'eur', symbol: '€' },
+    { currency: 'btc', symbol: '฿' },
+    { currency: 'eth', symbol: 'Ξ' },
+    { currency: 'gbp', symbol: '£' },
+    { currency: 'aud', symbol: '$' },
+    { currency: 'cad', symbol: '$' },
+    { currency: 'chf', symbol: 'CHF' },
+    { currency: 'clp', symbol: '$' },
+    { currency: 'cny', symbol: '¥' },
+    { currency: 'czk', symbol: 'Kč' },
+    { currency: 'dkk', symbol: 'kr' },
+    { currency: 'hkd', symbol: '$' },
+    { currency: 'huf', symbol: 'Ft' },
+    { currency: 'idr', symbol: 'Rp' },
+    { currency: 'ils', symbol: '₪' },
+    { currency: 'inr', symbol: '₹' },
+    { currency: 'jpy', symbol: '¥' },
+    { currency: 'krw', symbol: '₩' },
+    { currency: 'mxn', symbol: '$' },
+    { currency: 'myr', symbol: 'RM' },
+    { currency: 'nok', symbol: 'kr' },
+    { currency: 'nzd', symbol: '$' },
+    { currency: 'php', symbol: '₱' },
+    { currency: 'pkr', symbol: '₨' },
+    { currency: 'pln', symbol: 'zł' },
+    { currency: 'rub', symbol: '₽' },
+    { currency: 'sek', symbol: 'kr' },
+    { currency: 'sgd', symbol: '$' },
+    { currency: 'thb', symbol: '฿' },
+    { currency: 'try', symbol: '₺' },
+    { currency: 'twd', symbol: '$' },
+    { currency: 'zar', symbol: 'R' },
+
 
   ]
 
@@ -50,7 +51,7 @@ export class CurrencySymboleService {
 
     let currency:any = []
 
-    this.currencySymbole.forEach((element) => {
+    this.currencySymbol.forEach((element) => {
 
       currency.push(element.currency)
 
@@ -63,19 +64,19 @@ export class CurrencySymboleService {
   // fonction qui retourne le symbole de la currency
   getCurrencySymbole(currency: string): string {
 
-      let symbole = ''
+      let symbol = ''
 
-      this.currencySymbole.forEach((element) => {
+      this.currencySymbol.forEach((element) => {
 
         if (element.currency.toLocaleLowerCase() == currency) {
 
-          symbole = element.symbole
+          symbol = element.symbol
 
         }
 
       })
 
-      return symbole
+      return symbol
 
     }
 

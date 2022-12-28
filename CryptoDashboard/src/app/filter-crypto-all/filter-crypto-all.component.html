@@ -8,14 +8,7 @@
   <option *ngFor="let currency of currencies" [value]="currency">{{currency}}</option>
 </select>
 <select formControlName="filterOrder">
-  <option selected="selected" value="market_cap_desc">market_cap_desc</option>
-  <option value="market_cap_asc">market_cap_asc</option>
-  <option value="gecko_desc">gecko_desc</option>
-  <option value="gecko_asc">gecko_asc</option>
-  <option value="volume_desc">volume_desc</option>
-  <option value="volume_asc">volume_asc</option>
-  <option value="id_desc">id_desc</option>
-  <option value="id_asc">id_asc</option>
+  <option *ngFor="let order of orders" [value]="order">{{order}}</option>
 </select>
   </div>
 </form>
