@@ -1,7 +1,7 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { SingleCryptoInfoService } from '../single-crypto-info.service';
 import { SingleCryptoGraphService } from '../single-crypto-graph.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,7 +22,7 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
   crypto : any
   chartInfoTabPrices : Array<any> = new Array<any>()
 
-  constructor(private SingleCryptoInfoService: SingleCryptoInfoService,private SingleCryptoGraphService: SingleCryptoGraphService,private route: ActivatedRoute) {
+  constructor(private SingleCryptoInfoService: SingleCryptoInfoService,private SingleCryptoGraphService: SingleCryptoGraphService,private route: ActivatedRoute,private router: Router) {
     this.subscription1 = Subscription.EMPTY;
     this.subscription2 = Subscription.EMPTY;
     this.subscription3 = Subscription.EMPTY;
@@ -31,8 +31,12 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription1 = this.route.params.subscribe(params => {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.id = params['id'];
+
+
    });
+
 
    this.subscription2 = this.SingleCryptoInfoService.getSearchSingleCrypto(this.id).subscribe(
       (data) => {

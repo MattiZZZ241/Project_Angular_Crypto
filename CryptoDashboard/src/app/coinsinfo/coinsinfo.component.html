@@ -3,10 +3,13 @@
   <p>
     <span>Name: {{crypto.name}}</span>
     <span>Symbol: {{crypto.symbol}}</span>
+    <span>prix:{{crypto.market_data.current_price.usd}}</span>
+    <span>marketcap : {{crypto.market_data.market_cap.usd}}</span>
 
 
   </p>
   <div>{{crypto.description.en}}</div>
+
 
   <div>
     <div *ngFor="let char of chartInfoTabPrices">
