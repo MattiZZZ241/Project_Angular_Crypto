@@ -56,7 +56,6 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
     this.subscription1.unsubscribe()
     this.subscription2.unsubscribe()
     this.subscription3.unsubscribe()
-    console.log("unsubscribeinfo")
   }
 
 

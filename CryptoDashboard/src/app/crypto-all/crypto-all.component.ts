@@ -40,58 +40,17 @@ ngOnInit(): void {
 ngOnDestroy(): void {
   this.subscription1.unsubscribe()
   this.subscription2.unsubscribe()
-  console.log("unsubscribeallcryptoall")
 }
 
 search = (searchTabInputValueEnfant: Array<string>) : void => {
 
-  //this.search_input = searchTabInputValueEnfant[0]
   this.currency = searchTabInputValueEnfant[0]
   this.order = searchTabInputValueEnfant[1]
 
   this.subscription2 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
     (data) => {
-        //this.checkIdOrSymbol(this.search_input.toLowerCase())
         this.cryptos = data
     }
   )
-
-
-
 }
-
-
-
-/*getAllCrypto(){
-  while(parseInt(this.page) < 10 ){
-    this.page = (parseInt(this.page) + 1).toString()
-    this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
-      (data) => {
-        this.DisplayCryptos = this.DisplayCryptos.concat(data)
-        console.log(this.cryptos)
-        console.log(this.DisplayCryptos)
-      }
-    )
-}
-}*/
-
-/*checkIdOrSymbol(search : string){
-
-    switch (this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0).length ){
-
-      case 0:
-          if(this.DisplayCryptos.filter(e1 => e1.symbol.toLowerCase().indexOf(search) >= 0).length > 0){
-            this.cryptos = this.DisplayCryptos.filter(e1 => e1.symbol.toLowerCase().indexOf(search) >= 0)
-          }else {
-            console.log("nope")
-          }
-        break
-
-      default:
-          this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0)
-        break
-    }
-  }*/
-
-
 }
