@@ -14,6 +14,7 @@ export class CryptoAllComponent implements OnInit, OnDestroy {
   order: string = 'market_cap_desc'
   search_input: string = ''
   page: string = '1'
+  currencySymbole: string = '$'
   subscription1: Subscription
   subscription2: Subscription
 
@@ -46,6 +47,8 @@ search = (searchTabInputValueEnfant: Array<string>) : void => {
 
   this.currency = searchTabInputValueEnfant[0]
   this.order = searchTabInputValueEnfant[1]
+  this.currencySymbole = this.CurrencySymbole(this.currency)
+  this.subscription2.unsubscribe()
 
   this.subscription2 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
     (data) => {
@@ -53,4 +56,62 @@ search = (searchTabInputValueEnfant: Array<string>) : void => {
     }
   )
 }
+
+CurrencySymbole(currency : string){
+  switch(currency){
+    case 'usd':
+      return '$'
+    case 'eur':
+      return '€'
+    case 'jpy':
+      return '¥'
+    case 'gbp':
+      return '£'
+    case 'aud':
+      return '$'
+    case 'cad':
+      return '$'
+    case 'chf':
+      return 'CHF'
+    case 'cny':
+      return '¥'
+    case 'hkd':
+      return '$'
+    case 'idr':
+      return 'Rp'
+    case 'inr':
+      return '₹'
+    case 'krw':
+      return '₩'
+    case 'mxn':
+      return '$'
+    case 'rub':
+      return '₽'
+    case 'try':
+      return '₺'
+    case 'zar':
+      return 'R'
+    case 'sek':
+      return 'kr'
+    case 'sgd':
+      return '$'
+    case 'nzd':
+      return '$'
+    case 'thb':
+      return '฿'
+    case 'php':
+      return '₱'
+    case 'pln':
+      return 'zł'
+    case 'btc':
+      return '฿'
+    case 'eth':
+      return 'Ξ'
+    default:
+      return '$'
+  }
+
+}
+
+
 }
