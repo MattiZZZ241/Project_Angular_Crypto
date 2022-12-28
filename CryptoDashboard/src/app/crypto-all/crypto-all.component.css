@@ -9,3 +9,10 @@ table {
   width: 100%;
   text-align: center;
 }
+.spin{
+  display: inline;
+  position: relative;
+  left: 50%;
+
+
+}
