@@ -6,7 +6,8 @@
     font-size: large;
     border: none;
     box-shadow: 0 0 10px #0C1821;
-    position: fixed;
+    z-index: 3;
+
 }
 
 .gras {

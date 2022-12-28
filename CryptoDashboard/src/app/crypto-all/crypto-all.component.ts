@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, OnDestroy } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
-import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
+import { debounceTime, delay, Subscription, UnsubscriptionError } from 'rxjs';
 import { CryptoService } from '../cryptoListe.service';
 
 @Component({
@@ -8,73 +8,74 @@ import { CryptoService } from '../cryptoListe.service';
   templateUrl: './crypto-all.component.html',
   styleUrls: ['./crypto-all.component.css']
 })
-export class CryptoAllComponent implements OnInit {
+export class CryptoAllComponent implements OnInit, OnDestroy {
+
+  currency: string = 'usd'
+  order: string = 'market_cap_desc'
+  search_input: string = ''
+  page: string = '1'
+  subscription1: Subscription
+  subscription2: Subscription
+
   cryptos: Array<any> = new Array<any>()
   DisplayCryptos: Array<any> = new Array<any>()
-  id_parent: string
-  mySub: Subscription
-
-  protected userForm: UntypedFormGroup​
-
-  protected searchCtrl: FormControl<string|null>​​
-
-
   constructor(private cryptoService: CryptoService) {
-    this.id_parent = ""
+    this.subscription1 = Subscription.EMPTY;
+    this.subscription2 = Subscription.EMPTY;
 
-    this.searchCtrl = new FormControl<string>("")​
 
-    this.userForm = new UntypedFormGroup​
-
-    ({​
-
-        search: this.searchCtrl,​
-​
-
-    })
-    this.mySub = this.searchCtrl.valueChanges.pipe(debounceTime(1000)).subscribe(​
-
-      (data) => this.submit()​
-
-  );
 }
 ​
 
-ngOnInit(): void {​
+ngOnInit(): void {
 
-    this.cryptoService.getCryptos().subscribe(
+    this.subscription1 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
       (data) => {
         this.cryptos = data
-        this.DisplayCryptos = data
       }
     )
 
-    this.userForm = new UntypedFormGroup({ search: this.searchCtrl});​
 }
-  onId = (id: string) : void => {
-    console.log(id)
-    this.id_parent = id
-  }
 
-  childName = () : string => {
-    return this.id_parent
-  }
+ngOnDestroy(): void {
+  this.subscription1.unsubscribe()
+  this.subscription2.unsubscribe()
+  console.log("unsubscribeallcryptoall")
+}
 
+search = (searchTabInputValueEnfant: Array<string>) : void => {
 
+  //this.search_input = searchTabInputValueEnfant[0]
+  this.currency = searchTabInputValueEnfant[0]
+  this.order = searchTabInputValueEnfant[1]
 
-  submit() {
-    //pour la barre de recherche lorsqu'on écrit dedans (ne pas enlver c'est pour plus tard)
-    /*this.cryptoService.postSearchCrypto(search).subscribe(
-      (data) => {
+  this.subscription2 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
+    (data) => {
+        //this.checkIdOrSymbol(this.search_input.toLowerCase())
         this.cryptos = data
-      }
-    )*/
+    }
+  )
 
-    this.checkIdOrSymbol(this.searchCtrl.value?.toLowerCase() || "")
+
 
 }
 
-checkIdOrSymbol(search : string){
+
+
+/*getAllCrypto(){
+  while(parseInt(this.page) < 10 ){
+    this.page = (parseInt(this.page) + 1).toString()
+    this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
+      (data) => {
+        this.DisplayCryptos = this.DisplayCryptos.concat(data)
+        console.log(this.cryptos)
+        console.log(this.DisplayCryptos)
+      }
+    )
+}
+}*/
+
+/*checkIdOrSymbol(search : string){
 
     switch (this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0).length ){
 
@@ -82,13 +83,15 @@ checkIdOrSymbol(search : string){
           if(this.DisplayCryptos.filter(e1 => e1.symbol.toLowerCase().indexOf(search) >= 0).length > 0){
             this.cryptos = this.DisplayCryptos.filter(e1 => e1.symbol.toLowerCase().indexOf(search) >= 0)
           }else {
-            alert("Aucun résultat")
+            console.log("nope")
           }
         break
 
       default:
-        this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0)
+          this.cryptos = this.DisplayCryptos.filter(e1 => e1.name.toLowerCase().indexOf(search) >= 0)
         break
     }
-  }
+  }*/
+
+
 }
