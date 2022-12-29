@@ -3,6 +3,38 @@
   position: relative;
   top: 20%;
   left: 35%;
+}
 
+.symbol {
+  color: #66FCF1;
+}
 
+.liste {
+  border: none;
+  /*Liste pas bien définie sur la page faut trouver un truc (couleur plus claire peut être*/
+}
+
+.option {
+  background-color: #0B0C10;
+  color: #C5C6C7;
+}
+
+.option:hover {
+  background-color: #1F2833;
+  color: #C5C6C7;
+}
+
+.input {
+  background-color: #0B0C10;
+  color: #45A29E;
+  border: 2px solid #45A29E;
+  border-radius: 5px;
+}
+
+.input:focus {
+  background-color: #0B0C10;
+  color: #66FCF1;
+  border: 2px solid #45A29E;
+  border-radius: 5px;
+  outline: none;
 }
