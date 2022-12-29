@@ -7,7 +7,7 @@ export class CurrencySymboleService {
 
   constructor() { }
 
-  // tableau avec toutes les curenncies et leurs symboles
+  // tableau avec toutes les currencies et leurs symboles
   currencySymbol = [
 
     { currency: 'usd', symbol: '$' },
