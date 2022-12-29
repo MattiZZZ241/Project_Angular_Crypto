@@ -28,4 +28,12 @@ export class CoinsinfoComponent implements OnInit {
       }
     )
   }
+
+  colorPercentageChange(){
+    if(this.crypto.market_data.price_change_percentage_24h > 0){
+      return "green"
+    }else{
+      return "red"
+    }
+  }
 }
