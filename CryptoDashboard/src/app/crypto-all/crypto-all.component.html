@@ -2,7 +2,7 @@
   <app-filter-crypto-all (searchOut)="search($event)"></app-filter-crypto-all>
 
   <mat-progress-spinner class="spin" color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
-  <table mat-table>
+  <table class="tab">
     <thead>
       <tr>
         <th class="rank-head">Rang</th>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let crypto of cryptos" routerLink="/coins/{{crypto.id}}">
-        <td>{{crypto.market_cap_rank}}</td>
+        <td class="rank">{{crypto.market_cap_rank}}</td>
         <td><img src={{crypto.image}} style="height: 30px; width: 30px;"></td>
         <td>{{crypto.name}}</td>
         <td>{{crypto.symbol}}</td>
