@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<form (ngSubmit)="submit()" [formGroup]="userForm">​
+  <div>​
+
+  </div>​
+  <div>​
+<select formControlName="filterCurrency">
+  <option *ngFor="let currency of currencies" [value]="currency">{{currency}}</option>
+</select>
+<select formControlName="filterOrder">
+  <option *ngFor="let order of orders" [value]="order">{{order}}</option>
+</select>
+  </div>
+</form>
+
+

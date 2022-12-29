@@ -1,3 +1,5 @@
+  <mat-progress-spinner color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async">
+  </mat-progress-spinner>
 <div class="container">
   <div class="infos-head">
     <h1 class="coin-title"><img src="{{crypto.image.small}}"> {{crypto.name}}</h1>
@@ -35,5 +37,11 @@
         <td class="coin-max-supply no-border">{{crypto.market_data.price_change_percentage_7d_in_currency.eur}} €</td>
       </tr>
     </table>
+  </div>
+  <div>
+    <div *ngFor="let char of chartInfoTabPrices">
+      <div>{{getDate(char[0])}}</div>
+      <div>{{char[1]}}</div>
+      </div>
   </div>
 </div>

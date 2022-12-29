@@ -36,11 +36,11 @@ export class CryptoService {
       );
   }
 
-  getCryptos(): Observable<any> {
+  getCryptosPerPage(currency :string, order:string,nb_per_page:string,page:string): Observable<any> {
     return this.httpClient
       .get<any[]>(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1'
-      )
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency='+currency+'&order='+order+'&per_page='+nb_per_page+'&page='+page
+        )
       .pipe(
         map((tab: any[]) => {
           const res = [];
@@ -77,4 +77,6 @@ export class CryptoService {
         })
       );
   }
+
+
 }

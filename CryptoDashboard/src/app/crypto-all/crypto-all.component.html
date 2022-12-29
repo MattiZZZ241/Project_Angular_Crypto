@@ -1,13 +1,8 @@
 <div class="w3-col crypto-all">
-  <form (ngSubmit)="submit()" [formGroup]="userForm">​
-    <div>​
-      <label>Search</label>​
-      <input type="text" formControlName="search">​
-    </div>​
-    <button type="submit">Search</button>​
-  </form>
+  <app-filter-crypto-all (searchOut)="search($event)"></app-filter-crypto-all>
 
-  <table class="tab">
+  <mat-progress-spinner class="spin" color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+  <table mat-table>
     <thead>
       <tr>
         <th class="rank-head">Rang</th>
@@ -19,15 +14,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let crypto of cryptos" routerLink="/coins/{{crypto.id}}" class="line">
-        <td class="rank">{{crypto.market_cap_rank}}</td>
-        <td class="logo"><img src={{crypto.image}} style="height: 30px; width: 30px;"></td>
-        <td class="name">{{crypto.name}}</td>
-        <td class="symbol">{{crypto.symbol}}</td>
-        <td class="price">{{crypto.current_price}}</td>
-        <td class="mk-cap">{{crypto.market_cap}}</td>
+      <tr *ngFor="let crypto of cryptos" routerLink="/coins/{{crypto.id}}">
+        <td>{{crypto.market_cap_rank}}</td>
+        <td><img src={{crypto.image}} style="height: 30px; width: 30px;"></td>
+        <td>{{crypto.name}}</td>
+        <td>{{crypto.symbol}}</td>
+        <td>{{currencySymbole}}{{crypto.current_price}}</td>
+        <td>{{currencySymbole}}{{crypto.market_cap}}</td>
       </tr>
     </tbody>
   </table>
+
 </div>
 

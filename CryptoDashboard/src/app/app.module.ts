@@ -11,7 +11,14 @@ import { MainComponent } from './main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterCryptoAllComponent } from './filter-crypto-all/filter-crypto-all.component';
+import { SearchCryptoComponent } from './search-crypto/search-crypto.component'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NetworkInterceptor } from './network.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -22,15 +29,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     CryptoAllComponent,
     MainComponent,
     CoinsinfoComponent,
+    FilterCryptoAllComponent,
+    SearchCryptoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    MatAutocompleteModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NetworkInterceptor,
+      multi: true,
+    },
+ ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

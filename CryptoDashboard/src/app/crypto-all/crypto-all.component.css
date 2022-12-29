@@ -28,3 +28,10 @@ thead, th {
 .rank {
   border-right: 2px solid #45A29E;
 }
+.spin{
+  display: inline;
+  position: relative;
+  left: 50%;
+
+
+}

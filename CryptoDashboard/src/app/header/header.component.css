@@ -6,7 +6,7 @@
     font-size: large;
     border: none;
     box-shadow: 0 0 10px #66FCF1;
-    position: fixed;
+    z-index: 3;
 }
 
 .act {
