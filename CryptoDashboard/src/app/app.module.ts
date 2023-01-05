@@ -14,8 +14,8 @@ import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterCryptoAllComponent } from './filter-crypto-all/filter-crypto-all.component';
 import { SearchCryptoComponent } from './search-crypto/search-crypto.component'
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NetworkInterceptor } from './network.interceptor';
 

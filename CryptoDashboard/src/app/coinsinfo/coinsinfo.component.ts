@@ -5,8 +5,6 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoadingService } from '../loading.service';
 
-
-
 @Component({
   selector: 'app-coinsinfo',
   templateUrl: './coinsinfo.component.html',
@@ -18,10 +16,6 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
   subscription1: Subscription
   subscription2: Subscription
   subscription3: Subscription
-
-
-
-
 
   crypto : any
   chartInfoTabPrices : Array<any> = new Array<any>()
@@ -83,5 +77,4 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
     let year = d.getFullYear()
     return day + "/" + month + "/" + year
   }
-
 }
