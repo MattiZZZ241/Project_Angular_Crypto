@@ -61,6 +61,19 @@ search = (searchTabInputValueEnfant: Array<string>) : void => {
   )
 }
 
-
+changepage = (calc: string) : void => {
+  if (calc == "plus") {
+    this.page = (parseInt(this.page) + 1).toString()
+  }
+  else if (calc == "moins" && this.page != "1") {
+    this.page = (parseInt(this.page) - 1).toString()
+  }
+  this.subscription2.unsubscribe()
+  this.subscription2 = this.cryptoService.getCryptosPerPage(this.currency,this.order,"100",this.page).subscribe(
+    (data) => {
+      this.cryptos = data
+    }
+  )
+}
 
 }
