@@ -4,7 +4,6 @@ import { SingleCryptoGraphService } from '../single-crypto-graph.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoadingService } from '../loading.service';
-import { getLocaleId } from '@angular/common';
 
 @Component({
   selector: 'app-coinsinfo',

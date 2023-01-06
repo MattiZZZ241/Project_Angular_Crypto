@@ -7,7 +7,6 @@ export class OrderfiltreService {
 
   constructor() { }
 
-  // tableau avec les ordre de tri
   orderFiltre = [
     { order: 'market_cap_desc', name: 'Market Cap' },
     { order: 'gecko_desc', name: 'Gecko' },
@@ -30,7 +29,5 @@ export class OrderfiltreService {
       })
 
       return order
-
     }
-
 }

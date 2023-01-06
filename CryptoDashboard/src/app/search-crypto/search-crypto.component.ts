@@ -1,6 +1,6 @@
-import { Component, OnInit,OnDestroy,Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
-import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
+import { debounceTime, Subscription } from 'rxjs';
 import { SearchCryptoService } from '../search-crypto.service';
 import { LoadingService } from '../loading.service';
 
@@ -17,21 +17,15 @@ export class SearchCryptoComponent implements OnInit,OnDestroy {
   cryptos: Array<any> = new Array<any>()
   mySub: Subscription
 
-
-
   constructor(private SearchCryptoService: SearchCryptoService, public loader: LoadingService) {
     this.searchCtrl = new FormControl<string>("")
     this.userForm = new UntypedFormGroup​
     ({​
-
         search: this.searchCtrl,​
-​
     })
     this.mySub = this.searchCtrl.valueChanges.pipe(debounceTime(200)).subscribe(​
 
       (data) => this.submit()
-      ​
-
     );
 }
 
@@ -49,18 +43,11 @@ export class SearchCryptoComponent implements OnInit,OnDestroy {
     this.mySub = this.SearchCryptoService.getSearchCrypto(this.searchCtrl.value).subscribe(
       (data) => {
         this.cryptos = data
-      }
-    )
+      })
     }
     else {
       this.cryptos = []
       this.mySub.unsubscribe()
-
     }
-
-
-
-
 }
-
 }
