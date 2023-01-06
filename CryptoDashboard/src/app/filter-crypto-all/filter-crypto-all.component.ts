@@ -1,6 +1,6 @@
-import { Component, OnInit,OnDestroy,Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FormControl, UntypedFormGroup } from '@angular/forms';
-import { debounceTime, Subscription, UnsubscriptionError } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { CurrencySymboleService } from '../currency-symbole.service';
 import { OrderfiltreService } from '../orderfiltre.service';
 
@@ -25,61 +25,39 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
   FilterTable : Array<string> = new Array<string>()
 
   constructor(private CurrencySymboleService: CurrencySymboleService, private OrderfiltreService: OrderfiltreService) {
-
-
     this.filterCurrency = new FormControl<string>("usd")
     this.filterOrder = new FormControl<string>("market_cap_desc")
     this.currencies = this.CurrencySymboleService.getCurrency()
     this.orders = this.OrderfiltreService.getOrder()
-
-
-
-
     this.userForm = new UntypedFormGroup​
-
     ({​
-
         filterCurrency : this.filterCurrency,​
         filterOrder : this.filterOrder
-​
     })
 
     this.subscription1 = this.filterCurrency.valueChanges.subscribe(​
-
       (data) => this.submit()
-      ​
-
     );
+
     this.subscription2 = this.filterOrder.valueChanges.subscribe(​
-
     (data) => this.submit()
-    ​
-
     );
     this.subscription2 = Subscription.EMPTY;
-
   }
 
   ngOnInit(): void {
     this.userForm = new UntypedFormGroup({ filterCurrency: this.filterCurrency, filterOrder: this.filterOrder});​
-
   }
 
   ngOnDestroy(): void {
     this.subscription1.unsubscribe()
     this.subscription2.unsubscribe()
-
-
   }
 
   submit() {
-
       this.FilterTable[0] = this.filterCurrency.value || "usd"
       this.FilterTable[1] = this.filterOrder.value || "market_cap_desc"
 
       this.searchOut.emit(this.FilterTable)
-
-}
-
-
+    }
 }

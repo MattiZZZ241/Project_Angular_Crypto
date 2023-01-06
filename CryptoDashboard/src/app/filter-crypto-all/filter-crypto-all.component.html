@@ -1,7 +1,7 @@
 <form (ngSubmit)="submit()" [formGroup]="userForm">​​
   <div>​
     <select class="currency" formControlName="filterCurrency">
-      <option *ngFor="let currency of currencies" [value]="currency">{{currency}}</option>
+      <option *ngFor="let currency of currencies" [value]="currency">{{currency.toUpperCase()}}</option>
     </select>
     <select class="order" formControlName="filterOrder">
       <option *ngFor="let order of orders" [value]="order">{{order}}</option>

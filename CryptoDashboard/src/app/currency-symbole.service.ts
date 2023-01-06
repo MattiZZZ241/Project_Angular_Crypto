@@ -61,24 +61,17 @@ export class CurrencySymboleService {
 
   }
 
-  // fonction qui retourne le symbole de la currency
   getCurrencySymbole(currency: string): string {
-
       let symbol = ''
 
       this.currencySymbol.forEach((element) => {
 
         if (element.currency.toLocaleLowerCase() == currency) {
-
           symbol = element.symbol
-
         }
 
       })
 
       return symbol
-
     }
-
-
 }
