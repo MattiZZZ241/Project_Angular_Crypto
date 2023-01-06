@@ -1,5 +1,4 @@
-  <mat-progress-spinner color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async">
-  </mat-progress-spinner>
+<mat-progress-spinner color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
 <div class="container">
   <div class="infos-head">
     <h1 class="coin-title"><img src="{{crypto.image.small}}"> {{crypto.name}}</h1>
@@ -38,11 +37,7 @@
       </tr>
     </table>
   </div>
-</div>
-
-<div>
-  <div *ngFor="let char of chartInfoTabPrices">
-    <div>{{getDate(char[0])}}</div>
-    <div>{{char[1]}}</div>
-    </div>
+  <div class="graph-container">
+    <app-crypto-graph [id]="getId()"></app-crypto-graph>
+  </div>
 </div>
