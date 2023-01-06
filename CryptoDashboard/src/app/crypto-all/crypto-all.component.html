@@ -1,6 +1,9 @@
 <div class="w3-col crypto-all">
   <app-filter-crypto-all class="filters" (searchOut)="search($event)"></app-filter-crypto-all>
 
+  <button mat-raised-button color="primary" (click)="changepage('moins')">page precedante</button>
+  <button mat-raised-button color="primary" (click)="changepage('plus')">page suivante</button>
+
   <mat-progress-spinner class="spin" color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
   <table class="tab">
     <thead>
