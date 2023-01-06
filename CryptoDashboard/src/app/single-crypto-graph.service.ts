@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map, Observable, Subscription } from 'rxjs';
 
-
-
 @Injectable({
   providedIn: 'root',
 })
@@ -27,12 +25,10 @@ HistoricalChart(id: string, currency: string, days: number): Observable<any> {
         'https://api.coingecko.com/api/v3/coins/'+id+'/market_chart?vs_currency='+currency+'&days='+days+'&interval=daily').pipe(
               map( (obj: any) => obj['prices']),
               map((tab: any[]) => {
-                const res = [];
                 for (let i = 0; i < tab.length; i++) {
                   this.doubletab.date.push(this.getDate(tab[i][0]));
                   this.doubletab.price.push(this.convertToNumber(tab[i][1]));
                 }
-                console.log(this.doubletab);
                 return this.doubletab;
               }
             )
