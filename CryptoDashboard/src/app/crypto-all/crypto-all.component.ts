@@ -60,7 +60,4 @@ search = (searchTabInputValueEnfant: Array<string>) : void => {
     }
   )
 }
-
-
-
 }

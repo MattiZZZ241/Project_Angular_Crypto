@@ -1,6 +1,3 @@
-<head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-</head>
 <mat-progress-spinner color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
 <div class="container">
   <div class="infos-head">
@@ -41,7 +38,7 @@
     </table>
   </div>
   <div class="graph-container">
-    <app-crypto-graph></app-crypto-graph>
+    <app-crypto-graph [id]="getId()"></app-crypto-graph>
   </div>
 </div>
 

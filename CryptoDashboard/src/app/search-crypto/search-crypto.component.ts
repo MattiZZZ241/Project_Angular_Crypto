@@ -14,7 +14,6 @@ export class SearchCryptoComponent implements OnInit,OnDestroy {
   protected userForm: UntypedFormGroup
 
   protected searchCtrl: FormControl<string|null>
-  @Output() searchOut = new EventEmitter<Array<string>>()
   cryptos: Array<any> = new Array<any>()
   mySub: Subscription
 
