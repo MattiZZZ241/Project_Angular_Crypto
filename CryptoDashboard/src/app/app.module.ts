@@ -13,7 +13,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { CryptoAllComponent } from './crypto-all/crypto-all.component';
-import { MainComponent } from './main/main.component';
 import { CoinsinfoComponent } from './coinsinfo/coinsinfo.component';
 import { FilterCryptoAllComponent } from './filter-crypto-all/filter-crypto-all.component';
 import { SearchCryptoComponent } from './search-crypto/search-crypto.component';
@@ -28,7 +27,6 @@ import { CryptoGraphComponent } from './crypto-graph/crypto-graph.component';
     HeaderComponent,
     BodyComponent,
     CryptoAllComponent,
-    MainComponent,
     CoinsinfoComponent,
     FilterCryptoAllComponent,
     SearchCryptoComponent,
