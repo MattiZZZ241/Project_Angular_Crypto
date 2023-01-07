@@ -41,8 +41,7 @@ thead, th {
 }
 
 .move-buttons {
-  display: flex;
-  justify-content: right;
+  text-align: center;
 }
 
 .page-button {
