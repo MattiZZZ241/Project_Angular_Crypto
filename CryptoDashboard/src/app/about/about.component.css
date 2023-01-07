@@ -1,0 +1,97 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 0px;
+}
+
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.three {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#titre {
+    font-weight: bold;
+    color: #C5C6C7;
+    text-align: center;
+    margin-top: 110px;
+    margin-bottom: 20px;
+    font-family: Ubuntu;
+}
+
+.fiche {
+  background-color: #0B0C10;
+  border: 5px solid #45A29E;
+  border-radius: 30px;
+  text-align: center;
+  padding: 20px;
+}
+
+.name {
+    font-weight: bold;
+    color: #C5C6C7;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Ubuntu;
+}
+
+.job {
+    font-weight: bold;
+    color: #C5C6C7;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Ubuntu;
+}
+
+.pp {
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  box-shadow: 4px 6px 10px #66FCF1;
+}
+
+.desc {
+  font-family: Ubuntu;
+  color: #C5C6C7;
+}
+
+.link {
+  font-size: 36px;
+  color: #66FCF1;
+}
+
+.link:hover {
+  color: #45A29E;
+}
+
+.github {
+  margin-top: 13px;
+  color: #0B0C10;
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+}
+
+.lien-g {
+  text-decoration: none;
+  background-color: #66FCF1;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.lien-g:hover {
+  background-color: #45A29E;
+}

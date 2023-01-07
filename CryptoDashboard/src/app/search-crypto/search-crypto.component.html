@@ -1,0 +1,16 @@
+<form id="form" (ngSubmit)="submit()" [formGroup]="userForm">​
+  <mat-progress-spinner class="spin" [diameter]="25" color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async">  </mat-progress-spinner>
+  <input type="text"
+         placeholder="Chercher une crypto..."
+         formControlName="search"
+         [matAutocomplete]="auto"
+         class="input">
+  <mat-autocomplete class="liste" #auto="matAutocomplete" >
+    <mat-option class="option" *ngFor="let crypto of cryptos" [value]="crypto.name" routerLink="/coins/{{crypto.id}}">
+      <img [src]="crypto.thumb" style="width: 5%;height:5%;" >
+      {{crypto.name}} <span class="symbol">{{crypto.symbol}} </span>
+    </mat-option>
+  </mat-autocomplete>
+</form>
+
+

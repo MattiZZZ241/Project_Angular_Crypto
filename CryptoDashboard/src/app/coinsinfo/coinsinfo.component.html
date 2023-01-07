@@ -1,0 +1,43 @@
+<mat-progress-spinner color="primary" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+<div class="container">
+  <div class="infos-head">
+    <h1 class="coin-title"><img src="{{crypto.image.small}}"> {{crypto.name}}</h1>
+    <p class="coin-symbol">({{crypto.symbol.toUpperCase()}}) <span class="coin-rank"> Rang : #{{crypto.market_cap_rank}}</span></p>
+  </div>
+  <div class="infos-body">
+    <p class="coin-price">{{crypto.market_data.current_price.eur}} €</p>
+    <p class="coin-change-percentage {{colorPercentageChange()}}" >{{crypto.market_data.price_change_percentage_24h_in_currency.eur}} %</p>
+    <p class="coin-market-cap">{{crypto.market_data.market_cap.eur}} €</p>
+  </div>
+  <div class="infos-main">
+    <table class="tab-infos">
+      <tr class="lines">
+        <td>Réserve Max</td>
+        <td class="coin-max-supply">{{crypto.market_data.max_supply}}</td>
+      </tr>
+      <tr class="lines">
+        <td>En circulation</td>
+        <td class="coin-max-supply">{{crypto.market_data.circulating_supply}}</td>
+      </tr>
+      <tr class="lines">
+        <td>FDV</td>
+        <td class="coin-max-supply">{{crypto.market_data.fully_diluted_valuation.eur}} €</td>
+      </tr>
+      <tr class="lines">
+        <td>Changement du Market Cap (24h)</td>
+        <td class="coin-max-supply">{{crypto.market_data.market_cap_change_24h_in_currency.eur}} €</td>
+      </tr>
+      <tr class="lines">
+        <td>Volume total</td>
+        <td class="coin-max-supply">{{crypto.market_data.total_volume.eur}} €</td>
+      </tr>
+      <tr class="lines">
+        <td class="no-border">Variation Prix (1w)</td>
+        <td class="coin-max-supply no-border">{{crypto.market_data.price_change_percentage_7d_in_currency.eur}} €</td>
+      </tr>
+    </table>
+  </div>
+  <div class="graph-container">
+    <app-crypto-graph [id]="getId()"></app-crypto-graph>
+  </div>
+</div>

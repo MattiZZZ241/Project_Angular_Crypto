@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import "https://www.w3schools.com/w3css/4/w3.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap";
+
+app-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+html, body {
+  background-color: #0B0C10;
+}
+
+html, body {
+  margin: 0;
+  font-family: Lato;
+}
