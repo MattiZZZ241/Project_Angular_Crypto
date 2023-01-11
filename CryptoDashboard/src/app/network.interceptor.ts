@@ -8,7 +8,7 @@ import { finalize } from 'rxjs/operators';
 export class NetworkInterceptor implements HttpInterceptor {
   activeRequests: number = 0;
   constructor(private loader: LoadingService) {}
-
+  // interceptor to show the loading when the request is sent and hide it when the request is finished
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (this.activeRequests === 0) {
