@@ -27,7 +27,7 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
-    // subscribe to the observable and get the id of the crypto currency from the url to have the crypto info
+    //Subscribe to the observable and get the id of the crypto currency from the url to have the crypto info
     this.subscription1 = this.route.params.subscribe(params => {
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.id = params['id'];
@@ -43,7 +43,7 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
       }
     )
   }
-  // function to change the color of the percentage change in the 24h of the crypto currency
+  // function to change the color of the percentage change in the 24h of the crypto currency, green when its positive and red when its negative
   colorPercentageChange(){
     if(this.crypto.market_data.price_change_percentage_24h > 0){
       return "green"

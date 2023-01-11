@@ -20,7 +20,7 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
 
   @Input() id = ''
 
-  // Chart data for the graph
+  // Chart initial data for the graph
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [{
         data: this.chartInfoTabs.price,
@@ -59,7 +59,7 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription3.unsubscribe()
-    // subscribe to the observable and get the data from the service to have the crypto info for the graph
+    // subscribe to the observable and get the data from the service to have the crypto info for the graph and update the graph
     this.subscription3 = this.SingleCryptoGraphService.HistoricalChart(this.id,"eur",30).subscribe(
       (data) => {
         this.chartInfoTabs.date = data.date;
@@ -91,7 +91,7 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
 
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
-  // events on the chart
+  //detects when the charts is overed
   chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
   }
 }

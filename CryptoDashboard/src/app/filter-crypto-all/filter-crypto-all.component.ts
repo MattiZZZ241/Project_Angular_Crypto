@@ -40,10 +40,6 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
 
     this.subscription1 = Subscription.EMPTY;
     this.subscription2 = Subscription.EMPTY;
-
-
-
-
   }
 
   ngOnInit(): void {
