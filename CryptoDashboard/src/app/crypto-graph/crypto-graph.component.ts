@@ -20,6 +20,7 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
 
   @Input() id = ''
 
+  // Chart data for the graph
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [{
         data: this.chartInfoTabs.price,
@@ -34,7 +35,7 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
       }],
       labels: this.chartInfoTabs.date,
     }
-
+  // Chart options for the graph
   public lineChartOptions: ChartConfiguration['options'] = {
     elements: {
       line: {
@@ -52,12 +53,13 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
 
   constructor(private SingleCryptoGraphService:SingleCryptoGraphService) {
     this.subscription3 = Subscription.EMPTY;
+
     this.id = "none";
   }
 
   ngOnInit(): void {
     this.subscription3.unsubscribe()
-
+    // subscribe to the observable and get the data from the service to have the crypto info for the graph
     this.subscription3 = this.SingleCryptoGraphService.HistoricalChart(this.id,"eur",30).subscribe(
       (data) => {
         this.chartInfoTabs.date = data.date;
@@ -79,7 +81,7 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
       }
     );
   }
-
+  // unsubscribe to the observable when the component is destroyed
   ngOnDestroy() {
     this.subscription3.unsubscribe()
 
@@ -87,9 +89,9 @@ export class CryptoGraphComponent implements OnInit, OnDestroy {
     this.chartInfoTabs.price.length = 0;
   }
 
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
+  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+  // events on the chart
   chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
-    console.log(event, active);
   }
 }

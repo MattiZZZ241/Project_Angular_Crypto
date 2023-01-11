@@ -51,3 +51,8 @@ thead, th {
   border: 2px solid #45A29E;
   border-radius: 5px;
 }
+
+.page-number {
+  margin: 2px;
+  color: #45A29E;
+}

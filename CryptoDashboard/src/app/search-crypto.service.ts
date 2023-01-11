@@ -12,6 +12,7 @@ export class SearchCryptoService {
     this.subscription = Subscription.EMPTY;
 
    }
+   // function to get the crypto search data from the API and return an observable
    getSearchCrypto(search: string|null): Observable<any> {
     return this.httpClient
       .get<any[]>(

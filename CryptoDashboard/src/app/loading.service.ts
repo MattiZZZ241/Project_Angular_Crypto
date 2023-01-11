@@ -9,11 +9,11 @@ export class LoadingService {
   public readonly loading$ = this._loading.asObservable();
 
   constructor() {}
-
+  // function to show the loading
   show() {
     this._loading.next(true);
   }
-
+  // function to hide the loading
   hide() {
     this._loading.next(false);
   }

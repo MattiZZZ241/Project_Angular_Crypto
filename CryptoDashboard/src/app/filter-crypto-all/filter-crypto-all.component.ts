@@ -27,33 +27,44 @@ export class FilterCryptoAllComponent implements OnInit,OnDestroy {
   constructor(private CurrencySymboleService: CurrencySymboleService, private OrderfiltreService: OrderfiltreService) {
     this.filterCurrency = new FormControl<string>("usd")
     this.filterOrder = new FormControl<string>("market_cap_desc")
+
+    // get currency and order from the service to display them in the select HTML
     this.currencies = this.CurrencySymboleService.getCurrency()
     this.orders = this.OrderfiltreService.getOrder()
+
     this.userForm = new UntypedFormGroup​
     ({​
         filterCurrency : this.filterCurrency,​
         filterOrder : this.filterOrder
     })
 
-    this.subscription1 = this.filterCurrency.valueChanges.subscribe(​
-      (data) => this.submit()
-    );
-
-    this.subscription2 = this.filterOrder.valueChanges.subscribe(​
-    (data) => this.submit()
-    );
+    this.subscription1 = Subscription.EMPTY;
     this.subscription2 = Subscription.EMPTY;
+
+
+
+
   }
 
   ngOnInit(): void {
+    // subscribe to the observable and when the value currency change , call the submit function
+    this.subscription1 = this.filterCurrency.valueChanges.subscribe(​
+      (data) => this.submit()
+    );
+    // subscribe to the observable and when the value order change, call the submit function
+    this.subscription2 = this.filterOrder.valueChanges.subscribe(​
+    (data) => this.submit()
+    );
+
+    // function with the formControl to get the value of the filter
     this.userForm = new UntypedFormGroup({ filterCurrency: this.filterCurrency, filterOrder: this.filterOrder});​
   }
-
+  // unsubscribe when the component is destroyed
   ngOnDestroy(): void {
     this.subscription1.unsubscribe()
     this.subscription2.unsubscribe()
   }
-
+  // function to send the value of the filter to the parent component
   submit() {
       this.FilterTable[0] = this.filterCurrency.value || "usd"
       this.FilterTable[1] = this.filterOrder.value || "market_cap_desc"
