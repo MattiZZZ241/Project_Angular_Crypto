@@ -17,7 +17,7 @@ export class OrderfiltreService {
     { order: 'id_asc', name: 'Id' },
     { order: 'id_desc', name: 'Id' },
   ]
-
+  // function to get the order of the filter
   getOrder(): string[] {
 
       let order:any = []

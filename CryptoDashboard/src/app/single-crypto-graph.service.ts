@@ -17,7 +17,7 @@ export class SingleCryptoGraphService {
     this.subscription = Subscription.EMPTY;
 
   }
-
+// function to get the crypto historical data from the API and return an observable
 HistoricalChart(id: string, currency: string, days: number): Observable<any> {
 
     return this.httpClient
@@ -34,7 +34,7 @@ HistoricalChart(id: string, currency: string, days: number): Observable<any> {
             )
           );
   }
-
+// function to get the date from the timestamp and return a string with the date in the format day/month/year
   getDate = (date: number) : string => {
     let d = new Date(date)
     let day = d.getDate()

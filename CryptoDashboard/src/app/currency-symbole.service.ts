@@ -46,7 +46,7 @@ export class CurrencySymboleService {
 
 
   ]
-
+  // function to get all the currency selected
   getCurrency(): string[] {
 
     let currency:any = []
@@ -60,7 +60,7 @@ export class CurrencySymboleService {
     return currency
 
   }
-
+  // function to get the symbol of the currency selected
   getCurrencySymbole(currency: string): string {
       let symbol = ''
 

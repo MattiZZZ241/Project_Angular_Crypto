@@ -11,7 +11,7 @@ export class SingleCryptoInfoService {
   constructor(private httpClient: HttpClient) {
     this.subscription = Subscription.EMPTY;
   }
-
+  // function to get only one crypto information data from the API and return an observable
   getSearchSingleCrypto(cryptoID: string | null): Observable<any> {
     return this.httpClient
     .get<any[]>(

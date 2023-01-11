@@ -19,7 +19,7 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
   crypto : any
   chartInfoTabPrices : Array<any> = new Array<any>()
 
-  constructor(private SingleCryptoInfoService: SingleCryptoInfoService,private SingleCryptoGraphService: SingleCryptoGraphService,private route: ActivatedRoute,private router: Router, public loader: LoadingService) {
+  constructor(private SingleCryptoInfoService: SingleCryptoInfoService,private route: ActivatedRoute,private router: Router, public loader: LoadingService) {
     this.subscription1 = Subscription.EMPTY;
     this.subscription2 = Subscription.EMPTY;
     this.id = "none"
@@ -27,6 +27,7 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
+    // subscribe to the observable and get the id of the crypto currency from the url to have the crypto info
     this.subscription1 = this.route.params.subscribe(params => {
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.id = params['id'];
@@ -34,7 +35,7 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
       this.subscription2.unsubscribe()
    });
 
-
+   // subscribe to the observable and get the data from the service to have the crypto info
    this.subscription2 = this.SingleCryptoInfoService.getSearchSingleCrypto(this.id).subscribe(
       (data) => {
 
@@ -42,7 +43,7 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
       }
     )
   }
-
+  // function to change the color of the percentage change in the 24h of the crypto currency
   colorPercentageChange(){
     if(this.crypto.market_data.price_change_percentage_24h > 0){
       return "green"
@@ -50,12 +51,12 @@ export class CoinsinfoComponent implements OnInit, OnDestroy {
       return "red"
     }
   }
-
+  // unsubscribe when the component is destroyed
   ngOnDestroy() {
     this.subscription1.unsubscribe()
     this.subscription2.unsubscribe()
   }
-
+  // function to get the id of the crypto currency
   getId(){
     return this.id
   }
